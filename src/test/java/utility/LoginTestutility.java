@@ -14,7 +14,8 @@ public static ArrayList<Object[]> getDataFromExcel1() {
 	catch(Exception e) {
 		e.printStackTrace();
 	}
-	for(int rowNum=2;rowNum<=reader.getRowCount("Sheet2");rowNum++) {
+	int rowcount=reader.getRowCount("Sheet2");
+	for(int rowNum=2;rowNum<=rowcount;rowNum++) {
 		String username=reader.getCellData("Sheet2", "username", rowNum);
 		String password=reader.getCellData("Sheet2", "password", rowNum);
 		

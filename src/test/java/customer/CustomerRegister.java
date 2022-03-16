@@ -1,129 +1,171 @@
 package customer;
-	import java.util.ArrayList;
-	import java.util.Iterator;
-	import java.util.concurrent.TimeUnit;
-	import org.openqa.selenium.By;
-	import org.openqa.selenium.Keys;
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.chrome.ChromeDriver;
-	import org.openqa.selenium.interactions.Actions;
-	import org.openqa.selenium.support.ui.Select;
-	import org.testng.annotations.AfterSuite;
-	import org.testng.annotations.BeforeSuite;
-	import org.testng.annotations.DataProvider;
-	import org.testng.annotations.Test;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import utility.LoginTestutility;
 import utility.Testutility;
 
-	public class CustomerRegister {
-		WebDriver driver;
-		@BeforeSuite
-		public void setUp() throws InterruptedException {
-			System.setProperty("webdriver.chrome.driver","src/main/java/testresource/chromedriver.exe");
-			driver=new ChromeDriver();
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			driver.get("http://medeilhq.medeil.io/medeilplus/#/userlogin/login");
-			
-		}
-		@DataProvider
-		public Iterator<Object[]> getTestData1() {
-			ArrayList<Object[]> testdata1=LoginTestutility.getDataFromExcel1();
-			return testdata1.iterator();
-		}
-		@Test(dataProvider = "getTestData1")
-		public void a_login(String username,String password) throws java.lang.InterruptedException   {
-			System.out.println(driver.getCurrentUrl());
-			System.out.println(driver.getTitle());
-			driver.findElement(By.name("username")).sendKeys(username);
-			Thread.sleep(2000);
-			driver.findElement(By.id("password")).sendKeys(password);
-			driver.findElement(By.xpath("//button[contains(text(),'Sign In')]")).click();
-			Thread.sleep(7000);
-			System.out.println(driver.getTitle());
-			Thread.sleep(5000);
-			driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
-			driver.findElement(By.xpath("//span[contains(text(),'CRM')]")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//span[contains(text(),'Customer Registration')])[2]")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("//span[contains(text(),'Add Customer')]")).click();
-			
-		}
-		@DataProvider
-		public Iterator<Object[]> getTestData() {
-			ArrayList<Object[]> testdata=Testutility.getDataFromExcel();
-			return testdata.iterator();
-		}
-		@Test(dataProvider="getTestData")
-		public void b_customerRegister(String PatientFirstName,String PatientLastName,String VATGST,String Address1,String Address2,String PINCode,String Country,String State,String MobileNumber,String EmailId,String PhoneNumber) 
-				throws InterruptedException {
-			
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//input[@name='doctorName'])[2]")).clear();
-			driver.findElement(By.xpath("(//input[@name='doctorName'])[2]")).sendKeys(PatientFirstName);
-			
-			driver.findElement(By.id("docregistrationid")).clear();
-			driver.findElement(By.id("docregistrationid")).sendKeys(PatientLastName);
-			driver.findElement(By.xpath("(//input[@name='gender'])[1]")).click();
-			WebElement date=driver.findElement(By.id("docphonenumber"));
-			date.sendKeys("30May");
-			Actions act=new Actions(driver);
-			act.sendKeys(Keys.TAB).build().perform();
-			date.sendKeys("1995");
-			Thread.sleep(2000);
-			
-			driver.findElement(By.xpath("//label[contains(text(),'VAT / GST Number')]/following::input[1]")).clear();
-			driver.findElement(By.xpath("//label[contains(text(),'VAT / GST Number')]/following::input[1]")).sendKeys(VATGST);
-			//WebElement cat=driver.findElement(By.xpath("(//select[@name='select'])[1]/option[3] "));
-			//Select cate=new Select(cat);
-			//cate.selectByValue("34");
-			driver.findElement(By.xpath("(//select[@name='select'])[1]/option[3] ")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//label[contains(text(),'Select')])[1]/following::input[1]")).click();
-			driver.findElement(By.xpath("(//input[@id='doc_address1'])[1]")).clear();
-			driver.findElement(By.xpath("(//input[@id='doc_address1'])[1]")).sendKeys(Address1);
-			driver.findElement(By.xpath("(//input[@id='doc_address1'])[2]")).clear();
-			driver.findElement(By.xpath("(//input[@id='doc_address1'])[2]")).sendKeys(Address2);
-			
-			driver.findElement(By.id("docpincode")).clear();
-			driver.findElement(By.id("docpincode")).sendKeys(PINCode);
-			Thread.sleep(1000);
-			WebElement country=driver.findElement(By.id("doccountry"));
-			Select coun=new Select(country);
-			country.clear();
-			coun.selectByVisibleText(Country);
-			//driver.findElement(By.xpath("(//select[@name='select'])[2]/option[contains(text(),'India')]")).click();
-			Thread.sleep(1000);
-			WebElement stat=driver.findElement(By.id("docstate"));
-			Select state=new Select(stat);
-			stat.clear();
-			state.selectByVisibleText(State);
-		    //driver.findElement(By.xpath("//select[@name='select'])[3]/option[contains(text(),'Tamilnadu')]")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.xpath("(//select[@id='docstate'])/option[contains(text(),'Chennai')] ")).click();
-			Thread.sleep(2000);
-			driver.findElement(By.id("docmobile")).clear();
-			driver.findElement(By.id("docmobile")).sendKeys(MobileNumber);
-			driver.findElement(By.id("docemail")).clear();
-			driver.findElement(By.id("docemail")).sendKeys(EmailId);
-			driver.findElement(By.id("docphonenumber")).clear();
-			driver.findElement(By.id("docphonenumber")).sendKeys(PhoneNumber);
-			WebElement submit=driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
-			submit.click();
-			System.out.println(submit.isDisplayed());
-			//System.out.println(driver.getPageSource());
-			System.out.println(driver.getCurrentUrl());
-			System.out.println(driver.getTitle());
-			//driver.navigate().to("http://medeilhq.medeil.io/medeilplus/#/CustomerRegistration/ViewCustomer");
-			
-		}
-		@AfterSuite
-		public void tearDown() {
-			driver.close();
-		}
+public class CustomerRegister {
+	WebDriver driver;
+	Logger logger;
+	@BeforeSuite
+	public void setUp() throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","src/main/java/testresource/chromedriver.exe");
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.get("http://medeilhq.medeil.io/medeilplus/#/userlogin/login");
+		logger = Logger.getLogger("MedeilPlus");
+		PropertyConfigurator.configure("Log4j.properties");
+		logger.info("driver is loaded");
 	}
+	@DataProvider
+	public Iterator<Object[]> getTestData1() {
+		ArrayList<Object[]> testdata1=LoginTestutility.getDataFromExcel1();
+		return testdata1.iterator();
+	}
+	@Test(dataProvider = "getTestData1")
+	public void a_login(String username,String password) throws java.lang.InterruptedException   {
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(driver.getTitle());
+		logger.info("user name entered");
+		driver.findElement(By.name("username")).sendKeys(username);
+		Thread.sleep(2000);
+		driver.findElement(By.id("password")).sendKeys(password);
+		logger.info("Password entered");
+		driver.findElement(By.xpath("//button[contains(text(),'Sign In')]")).click();
+		Thread.sleep(7000);
+		System.out.println(driver.getTitle());
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'CRM')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//span[contains(text(),'Customer Registration')])[2]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text(),'Add Customer')]")).click();
+
+	}
+	@DataProvider
+	public Iterator<Object[]> getTestData() {
+		ArrayList<Object[]> testdata=Testutility.getDataFromExcel();
+		return testdata.iterator();
+	}
+	@Test(dataProvider="getTestData")
+	public void b_customerRegister(String PatientFirstName,String PatientLastName,String Gender,String dob,String VATGST,String Category,String patienttype,String Address1,String Address2,String PINCode,String Country,String State,String City,String MobileNumber,String EmailId,String PhoneNumber) 
+			throws InterruptedException {
+
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//input[@name='doctorName'])[2]")).clear();
+		driver.findElement(By.xpath("(//input[@name='doctorName'])[2]")).sendKeys(PatientFirstName);
+
+		driver.findElement(By.id("docregistrationid")).clear();
+		driver.findElement(By.id("docregistrationid")).sendKeys(PatientLastName);
+		
+		List RadioButton = driver.findElements(By.name("gender"));
+        // selecting the Radio buttons by Name
+        int Size = RadioButton.size();                // finding the number of Radio buttons
+
+        for(int i=0; i < Size; i++)                      // starts the loop from first Radio button to the last one
+       { 
+     String val =((WebElement) RadioButton.get(i)).getAttribute("value");
+ // Radio button name stored to the string variable, using 'Value' attribute
+
+     if (val.equalsIgnoreCase(Gender))   // equalsIgnoreCase is ignore case(upper/lower)
+              {                 // selecting the Radio button if its value is same as that we are looking for
+     ((WebElement) RadioButton.get(i)).click();
+     break;
+         }
+           }
+		WebElement date=driver.findElement(By.id("docphonenumber"));
+		date.sendKeys(dob);
+		//Actions act=new Actions(driver);
+		//act.sendKeys(Keys.TAB).build().perform();
+		//date.sendKeys(year);
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//label[contains(text(),'VAT / GST Number')]/following::input[1]")).clear();
+		driver.findElement(By.xpath("//label[contains(text(),'VAT / GST Number')]/following::input[1]")).sendKeys(String.valueOf(VATGST));
+		//WebElement cat=driver.findElement(By.xpath("(//select[@name='select'])[1]/option[3] "));
+		//Select cate=new Select(cat);
+		//cate.selectByValue("34");
+        WebElement category=driver.findElement(By.xpath("(//select[@name='select'])[1]"));
+        Select cat=new Select(category);
+        cat.selectByVisibleText(Category);
+		//driver.findElement(By.xpath("(//select[@name='select'])[1]/option[3] ")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//label[contains(text(),'Select')])[1]/following::input[1]")).click();
+		List RadioButton1 = driver.findElements(By.name("patienttype"));
+        // selecting the Radio buttons by Name
+        int Size1 = RadioButton1.size();                
+        for(int i=0; i < Size1; i++)                      
+       { 
+     String val1 =((WebElement) RadioButton1.get(i)).getAttribute("value");
+   if (val1.equalsIgnoreCase(patienttype))  
+              {                
+     ((WebElement) RadioButton1.get(i)).click();
+     break;
+         }
+           }
+		driver.findElement(By.xpath("(//input[@id='doc_address1'])[1]")).clear();
+		driver.findElement(By.xpath("(//input[@id='doc_address1'])[1]")).sendKeys(Address1);
+		driver.findElement(By.xpath("(//input[@id='doc_address1'])[2]")).clear();
+		driver.findElement(By.xpath("(//input[@id='doc_address1'])[2]")).sendKeys(Address2);
+
+		driver.findElement(By.id("docpincode")).clear();
+		driver.findElement(By.id("docpincode")).sendKeys(String.valueOf(PINCode));
+		Thread.sleep(1000);
+		WebElement country=driver.findElement(By.id("doccountry"));
+		Select coun=new Select(country);
+		//country.clear();
+		coun.selectByVisibleText(Country);
+		//driver.findElement(By.xpath("(//select[@name='select'])[2]/option[contains(text(),'India')]")).click();
+		Thread.sleep(1000);
+		WebElement stat=driver.findElement(By.id("docstate"));
+		Select state=new Select(stat);
+		//stat.clear();
+		state.selectByVisibleText(State);
+		//driver.findElement(By.xpath("//select[@name='select'])[3]/option[contains(text(),'Tamilnadu')]")).click();
+		Thread.sleep(2000);
+		WebElement city=driver.findElement(By.xpath("(//select[@id='docstate'])[2]"));
+		Select cityy=new Select(city);
+		cityy.selectByVisibleText(City);
+		//driver.findElement(By.xpath("(//select[@id='docstate'])/option[contains(text(),'Chennai')] ")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//input[@id='docmobile']")).clear();
+		driver.findElement(By.xpath("//input[@id='docmobile']")).sendKeys(String.valueOf(MobileNumber));
+		Thread.sleep(2000);
+		driver.findElement(By.id("docemail")).clear();
+		driver.findElement(By.id("docemail")).sendKeys(EmailId);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//input[@id='docphonenumber'])[2]")).clear();
+		driver.findElement(By.xpath("(//input[@id='docphonenumber'])[2]")).sendKeys(String.valueOf(PhoneNumber));
+		WebElement submit=driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
+		submit.click();
+		System.out.println(submit.isDisplayed());
+		//System.out.println(driver.getPageSource());
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(driver.getTitle());
+		//driver.navigate().to("http://medeilhq.medeil.io/medeilplus/#/CustomerRegistration/ViewCustomer");
+
+	}
+	@AfterSuite
+	public void tearDown() {
+		driver.close();
+	}
+}
 
 
