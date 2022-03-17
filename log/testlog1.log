@@ -76,3 +76,7 @@
 2022-03-16 17:57:34,976 [TestNG-test=Test-1] INFO MedeilPlus - user name entered
 2022-03-16 17:57:37,229 [TestNG-test=Test-1] INFO MedeilPlus - Password entered
 2022-03-16 17:57:55,682 [TestNG-test=Test-1] INFO MedeilPlus - user name entered
+2022-03-17 12:59:07,063 [main] INFO MedeilPlus - driver is loaded
+2022-03-17 12:59:09,069 [TestNG-test=Test-1] INFO MedeilPlus - user name entered
+2022-03-17 12:59:11,317 [TestNG-test=Test-1] INFO MedeilPlus - Password entered
+2022-03-17 12:59:29,655 [TestNG-test=Test-1] INFO MedeilPlus - user name entered
