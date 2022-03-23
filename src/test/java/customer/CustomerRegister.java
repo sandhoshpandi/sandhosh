@@ -1,12 +1,16 @@
 package customer;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -23,15 +27,16 @@ public class CustomerRegister {
 	WebDriver driver;
 	Logger logger;
 	@BeforeSuite
-	public void setUp() throws InterruptedException {
+	public void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver","src/main/java/testresource/chromedriver.exe");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		driver.get("http://medeilhq.medeil.io/medeilplus/#/userlogin/login");
+		driver.get("http://medeilhq.medeil.io/medeilhq/#/userlogin/login");
 		logger = Logger.getLogger("MedeilPlus");
 		PropertyConfigurator.configure("Log4j.properties");
 		logger.info("driver is loaded");
+		
 	}
 	@DataProvider
 	public Iterator<Object[]> getTestData1() {
@@ -39,24 +44,20 @@ public class CustomerRegister {
 		return testdata1.iterator();
 	}
 	@Test(dataProvider = "getTestData1")
-	public void a_login(String username,String password) throws java.lang.InterruptedException   {
+	public void a_login(String username,String password) throws Exception   {
 		System.out.println(driver.getCurrentUrl());
 		System.out.println(driver.getTitle());
-		logger.info("user name entered");
+		logger.info("username Entered");
 		driver.findElement(By.name("username")).sendKeys(username);
 		Thread.sleep(2000);
 		driver.findElement(By.id("password")).sendKeys(password);
-		logger.info("Password entered");
+		logger.info("Password Entered");
 		driver.findElement(By.xpath("//button[contains(text(),'Sign In')]")).click();
 		Thread.sleep(7000);
 		System.out.println(driver.getTitle());
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
-		driver.findElement(By.xpath("//span[contains(text(),'CRM')]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("(//span[contains(text(),'Customer Registration')])[2]")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//span[contains(text(),'Add Customer')]")).click();
+		takeSnapShot(driver, "E:\\MedeilAutomation\\MedeilLogin\\Screenshots\\userlogin.png");
 
 	}
 	@DataProvider
@@ -66,15 +67,20 @@ public class CustomerRegister {
 	}
 	@Test(dataProvider="getTestData")
 	public void b_customerRegister(String PatientFirstName,String PatientLastName,String Gender,String dob,String VATGST,String Category,String patienttype,String Address1,String Address2,String PINCode,String Country,String State,String City,String MobileNumber,String EmailId,String PhoneNumber) 
-			throws InterruptedException {
+			throws Exception {
 
 		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text(),'CRM')]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//span[contains(text(),'Customer Registration')])[2]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[contains(text(),'Add Customer')]")).click();
 		driver.findElement(By.xpath("(//input[@name='doctorName'])[2]")).clear();
 		driver.findElement(By.xpath("(//input[@name='doctorName'])[2]")).sendKeys(PatientFirstName);
-
+		logger.info("Patient name firstname entered");
 		driver.findElement(By.id("docregistrationid")).clear();
 		driver.findElement(By.id("docregistrationid")).sendKeys(PatientLastName);
-		
+		logger.info("Patient lastname Entered");
 		List RadioButton = driver.findElements(By.name("gender"));
         // selecting the Radio buttons by Name
         int Size = RadioButton.size();                // finding the number of Radio buttons
@@ -90,7 +96,9 @@ public class CustomerRegister {
      break;
          }
            }
+        logger.info("Gender Selected");
 		WebElement date=driver.findElement(By.id("docphonenumber"));
+		Thread.sleep(2000);
 		date.sendKeys(dob);
 		//Actions act=new Actions(driver);
 		//act.sendKeys(Keys.TAB).build().perform();
@@ -98,17 +106,20 @@ public class CustomerRegister {
 		Thread.sleep(2000);
 
 		driver.findElement(By.xpath("//label[contains(text(),'VAT / GST Number')]/following::input[1]")).clear();
-		driver.findElement(By.xpath("//label[contains(text(),'VAT / GST Number')]/following::input[1]")).sendKeys(String.valueOf(VATGST));
+		driver.findElement(By.xpath("//label[contains(text(),'VAT / GST Number')]/following::input[1]")).sendKeys(VATGST.replaceAll("[^0-9]", ""));
 		//WebElement cat=driver.findElement(By.xpath("(//select[@name='select'])[1]/option[3] "));
 		//Select cate=new Select(cat);
 		//cate.selectByValue("34");
+		logger.info("Vat/Gst Number Entered");
         WebElement category=driver.findElement(By.xpath("(//select[@name='select'])[1]"));
         Select cat=new Select(category);
         cat.selectByVisibleText(Category);
+        logger.info("Category Selected");
 		//driver.findElement(By.xpath("(//select[@name='select'])[1]/option[3] ")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//label[contains(text(),'Select')])[1]/following::input[1]")).click();
 		List RadioButton1 = driver.findElements(By.name("patienttype"));
+		logger.info("Patient type selected");
         // selecting the Radio buttons by Name
         int Size1 = RadioButton1.size();                
         for(int i=0; i < Size1; i++)                      
@@ -120,13 +131,17 @@ public class CustomerRegister {
      break;
          }
            }
+       // Alert ale=driver.switchTo().alert();
+      //  ale.accept();
+        //logger.warn("Alert is Accepted");
 		driver.findElement(By.xpath("(//input[@id='doc_address1'])[1]")).clear();
 		driver.findElement(By.xpath("(//input[@id='doc_address1'])[1]")).sendKeys(Address1);
+		logger.info("Address Entered");
 		driver.findElement(By.xpath("(//input[@id='doc_address1'])[2]")).clear();
 		driver.findElement(By.xpath("(//input[@id='doc_address1'])[2]")).sendKeys(Address2);
-
+		logger.info("Address2Entered");
 		driver.findElement(By.id("docpincode")).clear();
-		driver.findElement(By.id("docpincode")).sendKeys(String.valueOf(PINCode));
+		driver.findElement(By.id("docpincode")).sendKeys((PINCode.replaceAll("[^0-9]", "")));
 		Thread.sleep(1000);
 		WebElement country=driver.findElement(By.id("doccountry"));
 		Select coun=new Select(country);
@@ -146,19 +161,23 @@ public class CustomerRegister {
 		//driver.findElement(By.xpath("(//select[@id='docstate'])/option[contains(text(),'Chennai')] ")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//input[@id='docmobile']")).clear();
-		driver.findElement(By.xpath("//input[@id='docmobile']")).sendKeys(String.valueOf(MobileNumber));
+		driver.findElement(By.xpath("//input[@id='docmobile']")).sendKeys((MobileNumber.replaceAll("[^0-9]", "")));
 		Thread.sleep(2000);
 		driver.findElement(By.id("docemail")).clear();
 		driver.findElement(By.id("docemail")).sendKeys(EmailId);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("(//input[@id='docphonenumber'])[2]")).clear();
-		driver.findElement(By.xpath("(//input[@id='docphonenumber'])[2]")).sendKeys(String.valueOf(PhoneNumber));
+		driver.findElement(By.xpath("(//input[@id='docphonenumber'])[2]")).sendKeys((PhoneNumber.replaceAll("[^0-9]", "")));
 		WebElement submit=driver.findElement(By.xpath("//button[contains(text(),'Submit')]"));
+		Thread.sleep(1000);
 		submit.click();
+		Thread.sleep(1000);
+		logger.info("Submit button clicked");
 		System.out.println(submit.isDisplayed());
 		//System.out.println(driver.getPageSource());
 		System.out.println(driver.getCurrentUrl());
 		System.out.println(driver.getTitle());
+		takeSnapShot(driver, "E:\\MedeilAutomation\\MedeilLogin\\Screenshots\\addcustomer.png");
 		//driver.navigate().to("http://medeilhq.medeil.io/medeilplus/#/CustomerRegistration/ViewCustomer");
 
 	}
@@ -166,6 +185,16 @@ public class CustomerRegister {
 	public void tearDown() {
 		driver.close();
 	}
+	public static void takeSnapShot(WebDriver webdriver,String fileWithPath) throws Exception{
+		//Convert web driver object to TakeScreenshot
+		TakesScreenshot scrShot =((TakesScreenshot)webdriver);
+		//Call getScreenshotAs method to create image file
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+		//Move image file to new destination
+		File DestFile=new File(fileWithPath);
+		//Copy file at destination
+		FileUtils.copyFile(SrcFile, DestFile);
+		}
 }
 
 

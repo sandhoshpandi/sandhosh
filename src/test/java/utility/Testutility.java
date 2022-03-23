@@ -14,25 +14,25 @@ public static ArrayList<Object[]> getDataFromExcel() {
 	catch(Exception e) {
 		e.printStackTrace();
 	}
-	int rowcount=reader.getRowCount("Sheet1");
+	int rowcount=reader.getRowCount("CRM_ADD_PATIENT");
 	for(int rowNum=2;rowNum<=rowcount;rowNum++) {
-		String patientname=reader.getCellData("Sheet1", "PatientFirstName", rowNum);
-		String PatientLastName=reader.getCellData("Sheet1", "PatientLastName", rowNum);
-		String Gender=reader.getCellData("Sheet1", "Gender", rowNum);
-		String dob=reader.getCellData("Sheet1", "dob", rowNum);
-		String VATGST=reader.getCellData("Sheet1", "VATGST", rowNum);
-		String Category=reader.getCellData("Sheet1", "Category", rowNum);
-		String patienttype=reader.getCellData("Sheet1", "patienttype", rowNum);
-		String Address1=reader.getCellData("Sheet1", "Address1", rowNum);
-		String Address2=reader.getCellData("Sheet1", "Address2", rowNum);
-		String PINCode=reader.getCellData("Sheet1", "PINCode", rowNum);
-		String Country=reader.getCellData("Sheet1", "Country", rowNum);
-		String State=reader.getCellData("Sheet1", "State", rowNum);
-		String City=reader.getCellData("Sheet1", "City", rowNum);
-		String MobileNumber=reader.getCellData("Sheet1", "MobileNumber", rowNum);
-		String EmailId=reader.getCellData("Sheet1", "EmailId", rowNum);
-		String PhoneNumber=reader.getCellData("Sheet1", "PhoneNumber", rowNum);
-	     Object ob[]= {patientname,PatientLastName,Gender,dob,VATGST,Category,patienttype,Address1,Address2,PINCode,Country,State,City,MobileNumber,EmailId,PhoneNumber};
+		String patientname=reader.getCellData("CRM_ADD_PATIENT", "PatientFirstName", rowNum);
+		String PatientLastName=reader.getCellData("CRM_ADD_PATIENT", "PatientLastName", rowNum);
+		String Gender=reader.getCellData("CRM_ADD_PATIENT", "Gender", rowNum);
+		String dob=reader.getCellData("CRM_ADD_PATIENT", "dob", rowNum);
+		String VATGST=reader.getCellData("CRM_ADD_PATIENT", "VATGST", rowNum);
+		String Category=reader.getCellData("CRM_ADD_PATIENT", "Category", rowNum);
+		String patienttype=reader.getCellData("CRM_ADD_PATIENT", "patienttype", rowNum);
+		String Address1=reader.getCellData("CRM_ADD_PATIENT", "Address1", rowNum);
+		String Address2=reader.getCellData("CRM_ADD_PATIENT", "Address2", rowNum);
+		String PINCode=reader.getCellData("CRM_ADD_PATIENT", "PINCode", rowNum);
+		String Country=reader.getCellData("CRM_ADD_PATIENT", "Country", rowNum);
+		String State=reader.getCellData("CRM_ADD_PATIENT", "State", rowNum);
+		String City=reader.getCellData("CRM_ADD_PATIENT", "City", rowNum);
+		String MobileNumber=reader.getCellData("CRM_ADD_PATIENT", "MobileNumber", rowNum);
+		String EmailId=reader.getCellData("CRM_ADD_PATIENT", "EmailId", rowNum);
+		String PhoneNumber=reader.getCellData("CRM_ADD_PATIENT", "PhoneNumber", rowNum);
+	     Object[] ob= {patientname,PatientLastName,Gender,dob,VATGST,Category,patienttype,Address1,Address2,PINCode,Country,State,City,MobileNumber,EmailId,PhoneNumber};
 	     mydata.add(ob);
 	}
 	return mydata;

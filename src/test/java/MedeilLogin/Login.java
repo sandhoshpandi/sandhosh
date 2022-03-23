@@ -64,7 +64,7 @@ public class Login {
 		WebElement date=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[1]"));
 		Actions act=new Actions(driver);
 		Thread.sleep(2000);
-		date.sendKeys("01Mar");
+		date.sendKeys("0301");
 		act.sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(2000);
 		date.sendKeys("2021");
@@ -73,7 +73,7 @@ public class Login {
 		WebElement date1=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[4]"));
 		Actions act1=new Actions(driver);
 		Thread.sleep(2000);
-		date1.sendKeys("01Mar");
+		date1.sendKeys("0530");
 		act1.sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(2000);
 		date1.sendKeys("1995");

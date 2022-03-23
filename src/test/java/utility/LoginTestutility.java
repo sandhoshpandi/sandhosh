@@ -14,12 +14,12 @@ public static ArrayList<Object[]> getDataFromExcel1() {
 	catch(Exception e) {
 		e.printStackTrace();
 	}
-	int rowcount=reader.getRowCount("Sheet2");
+	int rowcount=reader.getRowCount("USER_LOGIN");
 	for(int rowNum=2;rowNum<=rowcount;rowNum++) {
-		String username=reader.getCellData("Sheet2", "username", rowNum);
-		String password=reader.getCellData("Sheet2", "password", rowNum);
+		String username=reader.getCellData("USER_LOGIN", "username", rowNum);
+		String password=reader.getCellData("USER_LOGIN", "password", rowNum);
 		
-	     Object ob[]= {username,password};
+	     Object[] ob= {username,password};
 	     mydata.add(ob);
 	}
 	return mydata;

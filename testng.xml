@@ -5,7 +5,6 @@
 	<listeners>
 		<listener class-name="utility.Reporting" />
 	</listeners>
-	
   <test  name="Test" parallel="classes" >
     <classes>
      
