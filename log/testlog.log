@@ -519,3 +519,118 @@
 2022-03-23 12:28:00,844 - MedeilPlus -INFO - Address Entered
 2022-03-23 12:28:01,599 - MedeilPlus -INFO - Address2Entered
 2022-03-23 12:28:18,322 - MedeilPlus -INFO - Submit button clicked
+2022-03-25 09:48:53,569 - MedeilPlus -INFO - driver is loaded
+2022-03-25 09:48:55,985 - MedeilPlus -INFO - username Entered
+2022-03-25 09:48:58,280 - MedeilPlus -INFO - Password Entered
+2022-03-25 09:50:21,295 - MedeilPlus -INFO - driver is loaded
+2022-03-25 09:50:22,010 - MedeilPlus -INFO - username Entered
+2022-03-25 09:50:24,216 - MedeilPlus -INFO - Password Entered
+2022-03-30 09:36:02,837 - MedeilPlus -INFO - driver is loaded
+2022-03-30 09:36:05,668 - MedeilPlus -INFO - username Entered
+2022-03-30 09:36:08,047 - MedeilPlus -INFO - Password Entered
+2022-03-30 09:36:30,251 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 09:36:30,895 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 09:36:31,482 - MedeilPlus -INFO - Gender Selected
+2022-03-30 09:36:36,516 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 09:36:37,147 - MedeilPlus -INFO - Category Selected
+2022-03-30 09:36:49,647 - MedeilPlus -INFO - Patient type selected
+2022-03-30 09:36:50,308 - MedeilPlus -INFO - Address Entered
+2022-03-30 09:36:50,986 - MedeilPlus -INFO - Address2Entered
+2022-03-30 09:37:07,884 - MedeilPlus -INFO - Submit button clicked
+2022-03-30 09:37:16,109 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 09:37:16,710 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 09:37:17,348 - MedeilPlus -INFO - Gender Selected
+2022-03-30 09:37:22,430 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 09:37:22,970 - MedeilPlus -INFO - Category Selected
+2022-03-30 09:37:35,508 - MedeilPlus -INFO - Patient type selected
+2022-03-30 09:37:36,122 - MedeilPlus -INFO - Address Entered
+2022-03-30 09:37:36,734 - MedeilPlus -INFO - Address2Entered
+2022-03-30 09:37:53,590 - MedeilPlus -INFO - Submit button clicked
+2022-03-30 12:06:05,081 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:06:51,206 - MedeilPlus -INFO - username Entered
+2022-03-30 12:06:53,481 - MedeilPlus -INFO - Password Entered
+2022-03-30 12:08:32,694 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:08:33,374 - MedeilPlus -INFO - username Entered
+2022-03-30 12:08:35,586 - MedeilPlus -INFO - Password Entered
+2022-03-30 12:08:57,030 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:08:57,675 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:08:58,171 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:09:03,188 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:09:03,735 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:09:16,212 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:09:16,844 - MedeilPlus -INFO - Address Entered
+2022-03-30 12:09:17,526 - MedeilPlus -INFO - Address2Entered
+2022-03-30 12:09:34,750 - MedeilPlus -INFO - Submit button clicked
+2022-03-30 12:09:43,518 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:09:44,184 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:09:44,940 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:09:50,129 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:09:50,851 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:10:03,413 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:10:04,163 - MedeilPlus -INFO - Address Entered
+2022-03-30 12:10:04,880 - MedeilPlus -INFO - Address2Entered
+2022-03-30 12:10:22,398 - MedeilPlus -INFO - Submit button clicked
+2022-03-30 12:17:47,673 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:20:37,898 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:20:38,586 - MedeilPlus -INFO - username Entered
+2022-03-30 12:20:40,812 - MedeilPlus -INFO - Password Entered
+2022-03-30 12:21:02,357 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:21:03,006 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:21:03,551 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:21:08,585 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:21:09,136 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:21:21,619 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:21:22,251 - MedeilPlus -INFO - Address Entered
+2022-03-30 12:21:22,881 - MedeilPlus -INFO - Address2Entered
+2022-03-30 12:21:39,869 - MedeilPlus -INFO - Submit button clicked
+2022-03-30 12:21:48,238 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:21:48,840 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:21:49,422 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:21:54,606 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:21:55,099 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:22:07,607 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:22:08,278 - MedeilPlus -INFO - Address Entered
+2022-03-30 12:22:08,874 - MedeilPlus -INFO - Address2Entered
+2022-03-30 12:22:25,626 - MedeilPlus -INFO - Submit button clicked
+2022-03-30 12:33:42,704 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:33:43,421 - MedeilPlus -INFO - username Entered
+2022-03-30 12:33:45,642 - MedeilPlus -INFO - Password Entered
+2022-03-30 12:34:24,515 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:34:25,203 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:34:25,774 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:34:30,849 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:34:31,400 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:34:43,173 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:35:11,365 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:35:12,056 - MedeilPlus -INFO - username Entered
+2022-03-30 12:35:14,268 - MedeilPlus -INFO - Password Entered
+2022-03-30 12:35:54,626 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:35:54,856 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:35:55,138 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:35:59,533 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:35:59,727 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:36:07,501 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:36:41,172 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:36:41,864 - MedeilPlus -INFO - username Entered
+2022-03-30 12:36:44,122 - MedeilPlus -INFO - Password Entered
+2022-03-30 12:39:12,271 - MedeilPlus -INFO - driver is loaded
+2022-03-30 12:39:12,946 - MedeilPlus -INFO - username Entered
+2022-03-30 12:39:15,191 - MedeilPlus -INFO - Password Entered
+2022-03-30 12:40:33,477 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:40:34,110 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:40:34,662 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:40:39,718 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:40:40,274 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:40:52,747 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:40:53,399 - MedeilPlus -INFO - Address Entered
+2022-03-30 12:40:54,009 - MedeilPlus -INFO - Address2Entered
+2022-03-30 12:41:10,706 - MedeilPlus -INFO - Submit button clicked
+2022-03-30 12:41:18,863 - MedeilPlus -INFO - Patient name firstname entered
+2022-03-30 12:41:19,451 - MedeilPlus -INFO - Patient lastname Entered
+2022-03-30 12:41:20,065 - MedeilPlus -INFO - Gender Selected
+2022-03-30 12:41:25,125 - MedeilPlus -INFO - Vat/Gst Number Entered
+2022-03-30 12:41:25,666 - MedeilPlus -INFO - Category Selected
+2022-03-30 12:41:38,127 - MedeilPlus -INFO - Patient type selected
+2022-03-30 12:41:38,722 - MedeilPlus -INFO - Address Entered
+2022-03-30 12:41:39,330 - MedeilPlus -INFO - Address2Entered
+2022-03-30 12:41:56,105 - MedeilPlus -INFO - Submit button clicked

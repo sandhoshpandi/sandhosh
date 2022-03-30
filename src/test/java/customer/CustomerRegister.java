@@ -1,6 +1,7 @@
 package customer;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -9,12 +10,17 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
@@ -23,20 +29,24 @@ import org.testng.annotations.Test;
 import utility.LoginTestutility;
 import utility.Testutility;
 
-public class CustomerRegister {
+public class CustomerRegister extends Login {
 	WebDriver driver;
 	Logger logger;
+	
 	@BeforeSuite
-	public void setUp() throws Exception {
+	public void setUp() {
 		System.setProperty("webdriver.chrome.driver","src/main/java/testresource/chromedriver.exe");
-		driver=new ChromeDriver();
+		ChromeOptions opt=new ChromeOptions();
+		opt.setExperimentalOption("excludeSwitches",Arrays.asList("enable-automation"));
+		driver=new ChromeDriver(opt);
+		
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://medeilhq.medeil.io/medeilhq/#/userlogin/login");
 		logger = Logger.getLogger("MedeilPlus");
 		PropertyConfigurator.configure("Log4j.properties");
 		logger.info("driver is loaded");
-		
+		System.out.println(opt.toJson());
 	}
 	@DataProvider
 	public Iterator<Object[]> getTestData1() {
@@ -58,7 +68,63 @@ public class CustomerRegister {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
 		takeSnapShot(driver, "E:\\MedeilAutomation\\MedeilLogin\\Screenshots\\userlogin.png");
-
+     
+	}
+	@Test
+	public void b_addemployee() throws InterruptedException {
+		Thread.sleep(7000);
+		//driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()='HRMS']")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//span[text()='Employee Register'])[1]")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span[text()='Add Employee']")).click();
+		Thread.sleep(2000);
+		WebElement e_Title=driver.findElement(By.name("select"));
+		Select sel=new Select(e_Title);
+		Thread.sleep(2000);
+		sel.selectByVisibleText("Mr.");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("//label[contains(text(),'First')]//following::input[1]")).sendKeys("pandi");
+		driver.findElement(By.xpath("//label[contains(text(),'First')]//following::input[2]")).sendKeys("pandi");
+		WebElement gender=driver.findElement(By.xpath("//label[contains(text(),'First')]//following::input[3]"));
+		gender.click();
+		System.out.println(gender.isEnabled());
+		WebElement e_Mode=driver.findElement(By.xpath("(//select[@name='select'])[2]"));
+		Select sel1=new Select(e_Mode);
+		Thread.sleep(3000);
+		sel1.selectByVisibleText("Permanent");
+		WebElement e_Type=driver.findElement(By.xpath("(//select[@name='select'])[3]"));
+		Select sel2=new Select(e_Type);
+		Thread.sleep(3000);
+		sel2.selectByVisibleText("Full Time Hourly");
+		driver.findElement(By.xpath("(//select[@name='select'])[4]/option[contains(text(), 'sales')]")).click();
+		Thread.sleep(4000);
+		WebElement date=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[1]"));
+		Actions act=new Actions(driver);
+		Thread.sleep(2000);
+		date.sendKeys("0301");
+		act.sendKeys(Keys.TAB).build().perform();
+		Thread.sleep(2000);
+		date.sendKeys("2021");
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[2]")).click();
+		WebElement date1=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[4]"));
+		Actions act1=new Actions(driver);
+		Thread.sleep(2000);
+		date1.sendKeys("0530");
+		act1.sendKeys(Keys.TAB).build().perform();
+		Thread.sleep(2000);
+		date1.sendKeys("1995");
+		driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[5]")).sendKeys("7010911215");
+		Thread.sleep(5000);
+		driver.findElement(By.id("email")).sendKeys("santhosh@gmail.com");
+		WebElement save= driver.findElement(By.xpath("(//button[contains(text(),'Save')])[1]"));
+		Thread.sleep(5000);
+		save.click();
+		System.out.println(save.isDisplayed());
+		Thread.sleep(4000);
 	}
 	@DataProvider
 	public Iterator<Object[]> getTestData() {
@@ -66,12 +132,15 @@ public class CustomerRegister {
 		return testdata.iterator();
 	}
 	@Test(dataProvider="getTestData")
-	public void b_customerRegister(String PatientFirstName,String PatientLastName,String Gender,String dob,String VATGST,String Category,String patienttype,String Address1,String Address2,String PINCode,String Country,String State,String City,String MobileNumber,String EmailId,String PhoneNumber) 
+	public void c_customerRegister(String PatientFirstName,String PatientLastName,String Gender,String dob,String VATGST,String Category,String patienttype,String Address1,String Address2,String PINCode,String Country,String State,String City,String MobileNumber,String EmailId,String PhoneNumber) 
 			throws Exception {
-
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("//span[contains(text(),'CRM')]")).click();
-		Thread.sleep(2000);
+         WebDriverWait wait=new WebDriverWait(driver, 20);
+	
+	WebElement cli=	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[contains(text(),'CRM')])[1]")));
+	cli.click();	
+	Thread.sleep(2000);
+		//driver.findElement(By.xpath("(//span[contains(text(),'CRM')])[1]")).click();
 		driver.findElement(By.xpath("(//span[contains(text(),'Customer Registration')])[2]")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//span[contains(text(),'Add Customer')]")).click();

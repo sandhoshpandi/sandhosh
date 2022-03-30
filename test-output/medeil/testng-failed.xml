@@ -8,9 +8,11 @@
     <classes>
       <class name="customer.CustomerRegister">
         <methods>
-          <include name="b_customerRegister" invocation-numbers="0 1"/>
-          <include name="setUp"/>
+          <include name="a_login"/>
+          <include name="c_customerRegister" invocation-numbers="0 1"/>
           <include name="tearDown"/>
+          <include name="b_addemployee"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- customer.CustomerRegister -->
     </classes>

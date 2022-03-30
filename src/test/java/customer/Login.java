@@ -1,4 +1,4 @@
-package MedeilLogin;
+package customer;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -14,10 +14,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-public class Login {
+public class Login  {
   public static  WebDriver driver;
 	@BeforeSuite
-	public void setUp() {
+	public void setUp() throws Exception {
 		System.setProperty("webdriver.chrome.driver","src/main/java/testresource/chromedriver.exe");
 		ChromeOptions opt =new ChromeOptions();
 		opt.setExperimentalOption("excludeSwitches",Arrays.asList("enable-automation"));
