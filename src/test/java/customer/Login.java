@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
-public class Login  {
+public class Login {
   public static  WebDriver driver;
 	@BeforeSuite
 	public void setUp() throws Exception {

@@ -1,4 +1,6 @@
 package customer;
+
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,7 +12,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -21,29 +22,35 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.Assertion;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import utility.LoginTestutility;
 import utility.Testutility;
 
-public class CustomerRegister extends Login {
+public class CustomerRegister  {
 	WebDriver driver;
 	Logger logger;
 	
 	@BeforeSuite
-	public void setUp() {
-		System.setProperty("webdriver.chrome.driver","src/main/java/testresource/chromedriver.exe");
+	public void setUp() throws Exception {
+		//System.setProperty("webdriver.chrome.driver","src/main/java/testresource/chromedriver.exe");
+		WebDriverManager.chromedriver().setup(); 
 		ChromeOptions opt=new ChromeOptions();
 		opt.setExperimentalOption("excludeSwitches",Arrays.asList("enable-automation"));
 		driver=new ChromeDriver(opt);
-		
 		driver.manage().window().maximize();
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("http://medeilhq.medeil.io/medeilhq/#/userlogin/login");
 		logger = Logger.getLogger("MedeilPlus");
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		PropertyConfigurator.configure("Log4j.properties");
 		logger.info("driver is loaded");
 		System.out.println(opt.toJson());
@@ -53,8 +60,8 @@ public class CustomerRegister extends Login {
 		ArrayList<Object[]> testdata1=LoginTestutility.getDataFromExcel1();
 		return testdata1.iterator();
 	}
-	@Test(dataProvider = "getTestData1")
-	public void a_login(String username,String password) throws Exception   {
+	@Test(dataProvider = "getTestData1",priority = 0)
+	public void loginPage(String username,String password) throws Exception   {
 		System.out.println(driver.getCurrentUrl());
 		System.out.println(driver.getTitle());
 		logger.info("username Entered");
@@ -70,8 +77,8 @@ public class CustomerRegister extends Login {
 		takeSnapShot(driver, "E:\\MedeilAutomation\\MedeilLogin\\Screenshots\\userlogin.png");
      
 	}
-	@Test
-	public void b_addemployee() throws InterruptedException {
+	@Test(priority = 1)
+	public void addEmployee() throws InterruptedException {
 		Thread.sleep(7000);
 		//driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
 		Thread.sleep(2000);
@@ -104,26 +111,29 @@ public class CustomerRegister extends Login {
 		WebElement date=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[1]"));
 		Actions act=new Actions(driver);
 		Thread.sleep(2000);
-		date.sendKeys("0301");
-		act.sendKeys(Keys.TAB).build().perform();
-		Thread.sleep(2000);
-		date.sendKeys("2021");
+		date.sendKeys("03012021");
+		//act.sendKeys(Keys.TAB).build().perform();
+		//Thread.sleep(2000);
+		//date.sendKeys("2021");
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[2]")).click();
 		WebElement date1=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[4]"));
 		Actions act1=new Actions(driver);
 		Thread.sleep(2000);
-		date1.sendKeys("0530");
-		act1.sendKeys(Keys.TAB).build().perform();
+		date1.sendKeys("05301995");
+		//act1.sendKeys(Keys.TAB).build().perform();
 		Thread.sleep(2000);
-		date1.sendKeys("1995");
+		//date1.sendKeys("1995");
 		driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[5]")).sendKeys("7010911215");
 		Thread.sleep(5000);
 		driver.findElement(By.id("email")).sendKeys("santhosh@gmail.com");
 		WebElement save= driver.findElement(By.xpath("(//button[contains(text(),'Save')])[1]"));
 		Thread.sleep(5000);
 		save.click();
+	    logger.info("Employee Added");
 		System.out.println(save.isDisplayed());
+		String s=driver.getTitle();
+		Assert.assertEquals(s, "Medeil Cloud |View Employee");
 		Thread.sleep(4000);
 	}
 	@DataProvider
@@ -131,8 +141,8 @@ public class CustomerRegister extends Login {
 		ArrayList<Object[]> testdata=Testutility.getDataFromExcel();
 		return testdata.iterator();
 	}
-	@Test(dataProvider="getTestData")
-	public void c_customerRegister(String PatientFirstName,String PatientLastName,String Gender,String dob,String VATGST,String Category,String patienttype,String Address1,String Address2,String PINCode,String Country,String State,String City,String MobileNumber,String EmailId,String PhoneNumber) 
+	@Test(dataProvider="getTestData",priority = 2)
+	public void customerRegister(String PatientFirstName,String PatientLastName,String Gender,String dob,String VATGST,String Category,String patienttype,String Address1,String Address2,String PINCode,String Country,String State,String City,String MobileNumber,String EmailId,String PhoneNumber) 
 			throws Exception {
 		Thread.sleep(2000);
          WebDriverWait wait=new WebDriverWait(driver, 20);
