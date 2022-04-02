@@ -868,3 +868,54 @@
 2022-04-02 13:34:52,613 [main] INFO MedeilPlus - Patient lastname Entered
 2022-04-02 13:35:01,310 [main] INFO MedeilPlus - Patient name firstname entered
 2022-04-02 13:35:01,421 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:50:23,527 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:50:24,124 [main] INFO MedeilPlus - username Entered
+2022-04-02 13:50:26,340 [main] INFO MedeilPlus - Password Entered
+2022-04-02 13:51:17,777 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:51:18,430 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:51:27,836 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:51:28,420 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:53:17,492 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:53:18,104 [main] INFO MedeilPlus - username Entered
+2022-04-02 13:53:20,367 [main] INFO MedeilPlus - Password Entered
+2022-04-02 13:54:35,545 [main] INFO MedeilPlus - Employee Added
+2022-04-02 13:54:45,505 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:54:46,159 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:54:46,865 [main] INFO MedeilPlus - Gender Selected
+2022-04-02 13:54:51,872 [main] INFO MedeilPlus - Vat/Gst Number Entered
+2022-04-02 13:54:52,497 [main] INFO MedeilPlus - Category Selected
+2022-04-02 13:55:05,105 [main] INFO MedeilPlus - Patient type selected
+2022-04-02 13:55:05,704 [main] INFO MedeilPlus - Address Entered
+2022-04-02 13:55:06,318 [main] INFO MedeilPlus - Address2Entered
+2022-04-02 13:55:23,576 [main] INFO MedeilPlus - Submit button clicked
+2022-04-02 13:55:32,248 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:55:32,811 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:55:33,543 [main] INFO MedeilPlus - Gender Selected
+2022-04-02 13:55:38,500 [main] INFO MedeilPlus - Vat/Gst Number Entered
+2022-04-02 13:55:39,103 [main] INFO MedeilPlus - Category Selected
+2022-04-02 13:55:51,697 [main] INFO MedeilPlus - Patient type selected
+2022-04-02 13:55:52,285 [main] INFO MedeilPlus - Address Entered
+2022-04-02 13:55:52,876 [main] INFO MedeilPlus - Address2Entered
+2022-04-02 13:56:10,089 [main] INFO MedeilPlus - Submit button clicked
+2022-04-02 13:58:02,194 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:58:02,881 [TestNG-test=Test-1] INFO MedeilPlus - username Entered
+2022-04-02 13:58:05,145 [TestNG-test=Test-1] INFO MedeilPlus - Password Entered
+2022-04-02 13:59:21,651 [TestNG-test=Test-1] INFO MedeilPlus - Employee Added
+2022-04-02 13:59:35,007 [TestNG-test=Test-1] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:59:35,633 [TestNG-test=Test-1] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:59:36,278 [TestNG-test=Test-1] INFO MedeilPlus - Gender Selected
+2022-04-02 13:59:41,303 [TestNG-test=Test-1] INFO MedeilPlus - Vat/Gst Number Entered
+2022-04-02 13:59:41,911 [TestNG-test=Test-1] INFO MedeilPlus - Category Selected
+2022-04-02 13:59:54,499 [TestNG-test=Test-1] INFO MedeilPlus - Patient type selected
+2022-04-02 13:59:55,114 [TestNG-test=Test-1] INFO MedeilPlus - Address Entered
+2022-04-02 13:59:55,730 [TestNG-test=Test-1] INFO MedeilPlus - Address2Entered
+2022-04-02 14:00:12,792 [TestNG-test=Test-1] INFO MedeilPlus - Submit button clicked
+2022-04-02 14:00:21,298 [TestNG-test=Test-1] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 14:00:21,877 [TestNG-test=Test-1] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 14:00:22,592 [TestNG-test=Test-1] INFO MedeilPlus - Gender Selected
+2022-04-02 14:00:27,590 [TestNG-test=Test-1] INFO MedeilPlus - Vat/Gst Number Entered
+2022-04-02 14:00:28,193 [TestNG-test=Test-1] INFO MedeilPlus - Category Selected
+2022-04-02 14:00:40,797 [TestNG-test=Test-1] INFO MedeilPlus - Patient type selected
+2022-04-02 14:00:41,456 [TestNG-test=Test-1] INFO MedeilPlus - Address Entered
+2022-04-02 14:00:42,270 [TestNG-test=Test-1] INFO MedeilPlus - Address2Entered
+2022-04-02 14:00:59,166 [TestNG-test=Test-1] INFO MedeilPlus - Submit button clicked

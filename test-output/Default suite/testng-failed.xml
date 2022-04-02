@@ -5,9 +5,9 @@
     <classes>
       <class name="customer.CustomerRegister">
         <methods>
+          <include name="loginPage" invocation-numbers="0"/>
           <include name="addEmployee"/>
           <include name="setUp"/>
-          <include name="customerRegister" invocation-numbers="0 1"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- customer.CustomerRegister -->
