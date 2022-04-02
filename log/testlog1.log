@@ -826,3 +826,45 @@
 2022-04-02 10:26:39,878 [TestNG-test=Test-1] INFO MedeilPlus - Address Entered
 2022-04-02 10:26:40,445 [TestNG-test=Test-1] INFO MedeilPlus - Address2Entered
 2022-04-02 10:26:57,531 [TestNG-test=Test-1] INFO MedeilPlus - Submit button clicked
+2022-04-02 13:02:46,214 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:02:46,812 [main] INFO MedeilPlus - username Entered
+2022-04-02 13:02:49,035 [main] INFO MedeilPlus - Password Entered
+2022-04-02 13:03:39,089 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:03:39,760 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:03:49,187 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:03:49,785 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:24:15,123 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:24:15,714 [main] INFO MedeilPlus - username Entered
+2022-04-02 13:24:17,937 [main] INFO MedeilPlus - Password Entered
+2022-04-02 13:25:09,524 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:25:10,168 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:25:19,576 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:25:20,160 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:26:06,150 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:26:06,754 [main] INFO MedeilPlus - username Entered
+2022-04-02 13:26:09,010 [main] INFO MedeilPlus - Password Entered
+2022-04-02 13:27:00,544 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:27:01,262 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:27:10,596 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:27:11,170 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:27:59,686 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:28:00,308 [main] INFO MedeilPlus - username Entered
+2022-04-02 13:28:02,579 [main] INFO MedeilPlus - Password Entered
+2022-04-02 13:28:53,217 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:28:53,865 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:29:03,365 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:29:03,949 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:29:04,710 [main] INFO MedeilPlus - Gender Selected
+2022-04-02 13:29:09,685 [main] INFO MedeilPlus - Vat/Gst Number Entered
+2022-04-02 13:29:10,297 [main] INFO MedeilPlus - Category Selected
+2022-04-02 13:29:22,897 [main] INFO MedeilPlus - Patient type selected
+2022-04-02 13:29:23,477 [main] INFO MedeilPlus - Address Entered
+2022-04-02 13:29:24,064 [main] INFO MedeilPlus - Address2Entered
+2022-04-02 13:29:41,307 [main] INFO MedeilPlus - Submit button clicked
+2022-04-02 13:34:00,364 [main] INFO MedeilPlus - driver is loaded
+2022-04-02 13:34:01,053 [main] INFO MedeilPlus - username Entered
+2022-04-02 13:34:03,291 [main] INFO MedeilPlus - Password Entered
+2022-04-02 13:34:52,289 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:34:52,613 [main] INFO MedeilPlus - Patient lastname Entered
+2022-04-02 13:35:01,310 [main] INFO MedeilPlus - Patient name firstname entered
+2022-04-02 13:35:01,421 [main] INFO MedeilPlus - Patient lastname Entered

@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 4, Time elapsed: 3.321 sec <<< FAILURE! - in TestSuite
+setUp(customer.CustomerRegister)  Time elapsed: 2.517 sec  <<< FAILURE!
+java.lang.NoSuchMethodError: org.apache.commons.io.IOUtils.toString(Ljava/io/InputStream;Ljava/nio/charset/Charset;)Ljava/lang/String;
+	at io.github.bonigarcia.wdm.versions.VersionDetector.getProperties(VersionDetector.java:302)
+	at io.github.bonigarcia.wdm.versions.VersionDetector.getBrowserVersionFromTheShell(VersionDetector.java:202)
+	at io.github.bonigarcia.wdm.WebDriverManager.getBrowserVersionFromTheShell(WebDriverManager.java:1063)
+	at io.github.bonigarcia.wdm.WebDriverManager.detectBrowserVersion(WebDriverManager.java:1083)
+	at io.github.bonigarcia.wdm.WebDriverManager.resolveDriverVersion(WebDriverManager.java:948)
+	at io.github.bonigarcia.wdm.WebDriverManager.manage(WebDriverManager.java:899)
+	at io.github.bonigarcia.wdm.WebDriverManager.setup(WebDriverManager.java:337)
+	at customer.CustomerRegister.setUp(CustomerRegister.java:42)
+

@@ -18,17 +18,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utility.LoginTestutility;
@@ -72,7 +69,7 @@ public class CustomerRegister  {
 		driver.findElement(By.xpath("//button[contains(text(),'Sign In')]")).click();
 		Thread.sleep(7000);
 		System.out.println(driver.getTitle());
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
 		takeSnapShot(driver, "E:\\MedeilAutomation\\MedeilLogin\\Screenshots\\userlogin.png");
      
@@ -109,7 +106,7 @@ public class CustomerRegister  {
 		driver.findElement(By.xpath("(//select[@name='select'])[4]/option[contains(text(), 'sales')]")).click();
 		Thread.sleep(4000);
 		WebElement date=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[1]"));
-		Actions act=new Actions(driver);
+		//Actions act=new Actions(driver);
 		Thread.sleep(2000);
 		date.sendKeys("03012021");
 		//act.sendKeys(Keys.TAB).build().perform();
@@ -118,7 +115,7 @@ public class CustomerRegister  {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[2]")).click();
 		WebElement date1=driver.findElement(By.xpath("(//label[contains(text(),'Date')])[1]//following::input[4]"));
-		Actions act1=new Actions(driver);
+	//	Actions act1=new Actions(driver);
 		Thread.sleep(2000);
 		date1.sendKeys("05301995");
 		//act1.sendKeys(Keys.TAB).build().perform();
