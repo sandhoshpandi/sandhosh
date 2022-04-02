@@ -1,7 +1,9 @@
 package utility;
 
 import java.util.ArrayList;
-import com.excel.lib.util.Xls_Reader;;
+
+import com.excel.lib.util.Xls_Reader;
+
 
 public class Testutility {
 	static Xls_Reader reader;

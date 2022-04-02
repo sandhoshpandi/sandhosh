@@ -70,7 +70,8 @@ public class CustomerRegister  {
 		Thread.sleep(7000);
 		System.out.println(driver.getTitle());
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]//following::em[1]")).click();
+		WebElement cur=driver.findElement(By.xpath("//label[contains(text(),'Account Payable')]/following::em[1]"));
+		cur.click();
 		takeSnapShot(driver, "E:\\MedeilAutomation\\MedeilLogin\\Screenshots\\userlogin.png");
      
 	}
